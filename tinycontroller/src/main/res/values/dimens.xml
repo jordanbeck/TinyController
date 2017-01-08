@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Some generic spacings that are used in Material Design spec. -->
     <dimen name="generic_xsmall">4dp</dimen>
