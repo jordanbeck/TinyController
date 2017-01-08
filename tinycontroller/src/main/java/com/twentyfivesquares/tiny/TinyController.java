@@ -124,6 +124,14 @@ public abstract class TinyController {
     }
 
     /**
+     * Properly start this controller and associated view. This is meant to mimic the
+     * {@link Activity#onStart()} and be called at the same time.
+     */
+    public void onStart() {
+        // TODO: implement everything to properly start the views
+    }
+
+    /**
      * Properly resume this controller and associated view. This is meant to mimic the
      * {@link Activity#onResume()} and be called at the same time.
      */
@@ -137,6 +145,14 @@ public abstract class TinyController {
      */
     public void onPause() {
         // TODO: implement everything to properly pause the views
+    }
+
+    /**
+     * Properly stop this controller and associated view. This is meant to mimic the
+     * {@link Activity#onStop()} and be called at the same time.
+     */
+    public void onStop() {
+        // TODO: implement everything to properly stop the views
     }
 
     /**
