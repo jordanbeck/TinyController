@@ -8,14 +8,14 @@ import com.twentyfivesquares.tiny.sample.adapter.MainAdapter
 import kotlinx.android.synthetic.main.controller_main.view.*
 import java.util.*
 
-class MainController(context: Context?) : TinyController(context) {
+class MainController(context: Context, onItemClicked: (message: String)-> Unit) : TinyController(context) {
 
     private val vRecycler by lazy { view.main_recycler }
 
     init {
         val items = Arrays.asList("Item 1", "Item 2", "Item 3")
         vRecycler.layoutManager = LinearLayoutManager(context)
-        vRecycler.adapter = MainAdapter(items)
+        vRecycler.adapter = MainAdapter(items, onItemClicked)
     }
 
     override fun getLayoutRes(): Int = R.layout.controller_main

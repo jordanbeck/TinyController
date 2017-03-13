@@ -141,6 +141,7 @@ public abstract class DialogController extends TinyController {
             vDialog.setAlpha(0f);
             vDialog.setVisibility(View.INVISIBLE);
         }
+
         if (onHideListener != null) {
             onHideListener.onHide();
         }
