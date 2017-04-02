@@ -29,14 +29,13 @@ dependencies {
     compile 'com.android.support:design:25.0.1'
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.android.support:recyclerview-v7:25.0.1'
+    compile 'com.github.jordanbeck:TinyController:v0.1.0'
 
     // Kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile 'org.jetbrains.anko:anko-sdk15:0.9.1' // sdk19, sdk21, sdk23 are also available
     compile 'org.jetbrains.anko:anko-support-v4:0.9.1' // In case you need support-v4 bindings
     compile 'org.jetbrains.anko:anko-appcompat-v7:0.9.1' // For appcompat-v7 bindings
-
-    compile project(path: ':tinycontroller')
 
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
