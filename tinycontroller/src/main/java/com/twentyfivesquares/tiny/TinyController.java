@@ -1,6 +1,9 @@
 package com.twentyfivesquares.tiny;
 
 import android.app.Activity;
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleObserver;
+import android.arch.lifecycle.OnLifecycleEvent;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
@@ -32,8 +35,10 @@ import java.lang.reflect.Constructor;
  *
  *  UPDATE: I think the best approach right now is to go with #2. But that does make there more
  *  overhead for the ViewPager approach...
+ *
+ *  TODO: Remove all the different lifecycle events and just have attach and detach
  */
-public abstract class TinyController {
+public abstract class TinyController implements LifecycleObserver {
 
     protected final int NO_VIEW = -1;
 
@@ -127,6 +132,7 @@ public abstract class TinyController {
      * Properly start this controller and associated view. This is meant to mimic the
      * {@link Activity#onStart()} and be called at the same time.
      */
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public void onStart() {
         // TODO: implement everything to properly start the views
     }
@@ -135,6 +141,7 @@ public abstract class TinyController {
      * Properly resume this controller and associated view. This is meant to mimic the
      * {@link Activity#onResume()} and be called at the same time.
      */
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume() {
         // TODO: implement everything to properly resume the views
     }
@@ -143,6 +150,7 @@ public abstract class TinyController {
      * Properly pause this controller and associated view. This is meant to mimic the
      * {@link Activity#onPause()} and be called at the same time.
      */
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void onPause() {
         // TODO: implement everything to properly pause the views
     }
@@ -151,6 +159,7 @@ public abstract class TinyController {
      * Properly stop this controller and associated view. This is meant to mimic the
      * {@link Activity#onStop()} and be called at the same time.
      */
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     public void onStop() {
         // TODO: implement everything to properly stop the views
     }
@@ -160,6 +169,7 @@ public abstract class TinyController {
      * {@link android.app.Activity#onDestroy()} and be called at the same time.
      */
     @CallSuper
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroy() {
         // TODO: implement everything to properly destroy the views
     }

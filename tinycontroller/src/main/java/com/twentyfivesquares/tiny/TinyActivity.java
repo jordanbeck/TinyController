@@ -31,6 +31,9 @@ public class TinyActivity extends AppCompatActivity {
         if (addToParent) {
             vContentContainer.addView(controller.getView());
         }
+
+        // Add controller to lifecycle observer
+        getLifecycle().addObserver(controller);
     }
 
     protected ViewGroup getContentContainer() {
@@ -58,50 +61,6 @@ public class TinyActivity extends AppCompatActivity {
         super.onStart();
         for (TinyController c : controllers) {
             c.onStart();
-        }
-    }
-
-    /**
-     * Send the {@link #onResume()} lifecycle event to the controller
-     */
-    @Override
-    protected void onResume() {
-        super.onResume();
-        for (TinyController c : controllers) {
-            c.onResume();
-        }
-    }
-
-    /**
-     * Send the {@link #onPause()} lifecycle event to the controller
-     */
-    @Override
-    protected void onPause() {
-        super.onPause();
-        for (TinyController c : controllers) {
-            c.onPause();
-        }
-    }
-
-    /**
-     * Send the {@link #onStop()} lifecycle event to the controller
-     */
-    @Override
-    protected void onStop() {
-        super.onStop();
-        for (TinyController c : controllers) {
-            c.onStop();
-        }
-    }
-
-    /**
-     * Send the {@link #onDestroy()} lifecycle event to the controller
-     */
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        for (TinyController c : controllers) {
-            c.onDestroy();
         }
     }
 
